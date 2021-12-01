@@ -19,27 +19,34 @@ class BootstrapCarouselComponent extends React.Component {
 
       return (
         <div>
-          <div className="container">
+          <div className="container-fluid">
             <div className="row" >
             </div>
             <div className="row">
-              <div className="col-sm-12" >
-                <Carousel interval="3000">
-      
+              <div className="col-sm-12" style={{textAlign: 'center'}} >
+                <Carousel interval="4000">
+                  
                   <Carousel.Item>
-                    <FaEarlybirds style={{fontSize: '50px'}}/>
+                    <FaTwitter style={{fontSize: '80px'}}/>
                   </Carousel.Item>
                   
-
+                  <Carousel.Item>
+                    <FaEarlybirds style={{fontSize: '80px'}}/>
+                  </Carousel.Item>
+                  
+                 
                 
                   <Carousel.Item>
-                    <FaKiwiBird style={{fontSize: '50px'}}/>
+                    <FaKiwiBird style={{fontSize: '80px'}}/>
                   </Carousel.Item>
                
+                  <Carousel.Item>
+                    <GiHummingbird style={{fontSize: '80px'}}/>
+                  </Carousel.Item>
 
                   
                   <Carousel.Item>
-                    <GiEgyptianBird style={{fontSize: '50px'}}/>
+                    <GiEgyptianBird style={{fontSize: '80px'}}/>
                   </Carousel.Item>
                 </Carousel>
                 
