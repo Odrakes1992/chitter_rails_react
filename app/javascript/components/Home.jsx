@@ -2,7 +2,7 @@ import React from "react";
 import BootstrapCarouselComponent from "./BootstrapCarouselComponent";
 import { Link } from "react-router-dom";
 import {FaTwitter, FaEarlybirds, FaKiwiBird} from 'react-icons/fa';
-import {GiBirdCage, GiBirdHouse, GiBirdMask, GiBirdTwitter, GiEgyptianBird, GiNestBirds, GiHummingbird} from 'react-icons/gi';
+
 
 export default () => (
 
