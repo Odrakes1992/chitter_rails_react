@@ -12,5 +12,10 @@ RSpec.describe Comment, type: :model do
     subject.content = "Life is like an ocean"
   end 
 
+  describe "Associations" do 
+    it { should belong_to(:user)}
+    it { should belong_to(:post)}
+  end 
+
 
 end

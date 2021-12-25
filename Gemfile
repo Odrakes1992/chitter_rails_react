@@ -35,6 +35,7 @@ group :development, :test do
   gem 'bootstrap', '~> 5.1.0'
   gem 'jquery-rails'
   gem 'bcrypt', '~> 3.1.15'
+  gem 'shoulda-matchers'
 end
 
 group :development do
