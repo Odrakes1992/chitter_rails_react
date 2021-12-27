@@ -1,13 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {Component} from "react";
+import axios from 'axios';
 import { Form, Button } from "react-bootstrap";
 import {FaTwitter, FaEarlybirds, FaKiwiBird} from 'react-icons/fa';
-import { GiBirdHouse, GiNestBirds } from "react-icons/gi";
 
 
-export default () => (
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      email: '',
+      password: '',
+      errors: ''
+     };
+  }
+handleChange = (event) => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+  };
+handleSubmit = (event) => {
+    event.preventDefault()
+  };
 
-  <div className="vw-100 vh-100 primary-color align-items-center justify-content-center">
+
+render() {
+    const {email, password} = this.state
+
+  return (
+
+    <div className="vw-100 vh-100 primary-color align-items-center justify-content-center">
     <div className="row" style={{margin: '50px' }}>
       <div style={{padding: '35px'}}>
         <h1 className="display-4" style={{textAlign: 'center' }}> Welcome back friend <FaKiwiBird/></h1>
@@ -19,7 +41,7 @@ export default () => (
 
       <div className="container secondary-color">
         <Form className="container auto">
-          <form>
+          <form onSubmit = {this.handleSubmit}>
             <Form.Group className="mb-3" controlId="formGroupEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
@@ -36,7 +58,21 @@ export default () => (
       </div>
 
     </div>
+
+    <Button
+              href="/sign_up"
+              className="btn btn-lg custom-button"
+        >
+              Sign Up 
+        </Button>
     
   </div>
-);
 
+
+  )
+
+}
+}
+
+
+export default Login;
