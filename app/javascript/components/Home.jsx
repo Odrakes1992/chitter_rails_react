@@ -4,10 +4,21 @@ import { Link } from "react-router-dom";
 import {FaTwitter, FaEarlybirds, FaKiwiBird} from 'react-icons/fa';
 import { Button } from "react-bootstrap";
 
+const Home = (props) => {
 
-export default () => (
+  const handleClick = () => {
+    axios.delete('http://localhost:3001/logout', {withCredentials: true})
+    .then(response => {
+      props.handleLogout()
+      props.history.push('/')
+    })
+    .catch(error => console.log(error))
+  }
 
-  <div className="vw-100 vh-100 primary-color align-items-center justify-content-center">
+  return (
+
+    
+    <div className="vw-100 vh-100 primary-color align-items-center justify-content-center">
     <div className="row" style={{margin: '50px' }}>
         <div className="container secondary-color">
           <div className="Carousel">
@@ -56,8 +67,23 @@ export default () => (
 
       </div>
     </div>
- 
+
+    <div>
+        { 
+        props.loggedInStatus ? 
+          <Link to='/logout' onClick={handleClick}>Log Out</Link> : 
+        null
+        } 
+    </div>
+
   </div>
-);
+
+  )
 
 
+
+
+}
+
+
+export default Home; 

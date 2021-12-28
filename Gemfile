@@ -36,6 +36,7 @@ group :development, :test do
   gem 'jquery-rails'
   gem 'bcrypt', '~> 3.1.15'
   gem 'shoulda-matchers'
+  gem 'rack-cors'
 end
 
 group :development do

@@ -48,8 +48,10 @@ class RegistrationController < ApplicationController
         status: 500,
         errors: @user.errors.full_messages
       }
+    redirect_to root_path
 
     end
+    redirect_to feed_path
   end
     
     # if @user.save

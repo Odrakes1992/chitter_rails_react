@@ -5,7 +5,7 @@
 
 
 import React, {Component} from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {Routes} from "react-router-dom";
 import Home from "../components/Home";
 import Feed from "../components/Feed";
@@ -28,12 +28,12 @@ class App extends Component {
   
   componentDidMount() {
     this.loginStatus()
+    
   }
 
   loginStatus = () => {
     axios.get('http://localhost:3001/logged_in', 
     {withCredentials: true})
-
     .then(response => {
       if (response.data.logged_in) {
         this.handleLogin(response)
@@ -62,21 +62,26 @@ class App extends Component {
 render () {
   return (
     <div>
+
+
+
     <Router>
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-    </Routes>
+      <Route path="/" element={<Home render={home => (<Component {...this.props} home={home} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+      )}/>}></Route>
+    {/* </Routes>
   
-    <Routes>
+    <Routes> */}
       <Route path="/feed" element={<Feed />}></Route>
-    </Routes>
+    {/* </Routes>
 
-    <Routes>
-      <Route path="/sign_up" element={<Registration />}></Route>
-    </Routes>
+    <Routes> */}
+      <Route path="/sign_up" element={ <Registration render={registration => (<Component {...this.props} registration={registration} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+      )}/>}></Route>
+    {/* </Routes>
 
-    <Routes>
-      <Route path="/login" element={<LogIn />}></Route>
+    <Routes> */}
+      <Route path="/login" element={<LogIn render={login => (<Component {...this.props} login={login} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>)}/>}></Route>
     </Routes>
 
   </Router>

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def login!
     session[:user_id] = @user.id
+    redirect_to feed_path
   end
 
   def logged_in?
